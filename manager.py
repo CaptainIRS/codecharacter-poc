@@ -19,7 +19,6 @@ print('Fifos created')
 
 try:
     print('Starting driver process')
-    print(f'{temp_directory}')
     driver_process = subprocess.Popen([
         'docker',
         'run',
