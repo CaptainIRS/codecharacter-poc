@@ -15,7 +15,7 @@ There will be 2 articles we need to deal with:
 
 #### Player code
 
-Player code can be written in any language(theoretically). For the purposes of this PoC, we will use C++, Java and Python. The started code given to the player will consist of helper functions that handle the I/O and pass the state to an incomplete function, which the player will complete with their strategy. The coding experience can be thought of as an 
+Player code can be written in any language(theoretically). For the purposes of this PoC, we will use C++, Java and Python. The started code given to the player will consist of helper functions that handle the I/O and pass the state to an incomplete function, which the player will complete with their strategy.
 
  #### Game logs
 
