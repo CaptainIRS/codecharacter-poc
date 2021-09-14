@@ -1,6 +1,6 @@
-# CodeCharacter New Server Concept PoC
+# Simulator PoC
 
-## Idea
+### Idea
 
 There will be 5 major components:
 1. Compiler process (for specific languages)
@@ -15,17 +15,7 @@ There will be 2 articles we need to deal with:
 
 #### Player code
 
-Player code can be written in any language(theoretically). For the purposes of this PoC, we will use C++, Java and Python. The started code given to the player will consist of helper functions that handle the I/O and pass the state to an incomplete function, which the player will complete with their strategy. To understand the I/O procedure, the game can be modeled something like:
-
-```
-The first line of input will have an integer N, which is the number of turns in the game. The second line will have two integers X and Y which are the dimensions of the board. The third line will have the integer O which is the number of cells occupied by obstacles. The O lines that follow each will have two integers m and n which is the position of the obstacle.
-
- The input for the N turns follow. The first line for each turn will have an integer E, which is the number of enemy troops. The following E lines will have the integers x, y and p, which is the position of the enemy troop and the power....
-
- For each turn output 2 lines. The first line should have an integer M, which is the number of troops you'd like to move. The following M lines will have the integers x, y and p, which is the position of the troop you'd like to move and the power of the troop......
-
- .....
- ```
+Player code can be written in any language(theoretically). For the purposes of this PoC, we will use C++, Java and Python. The started code given to the player will consist of helper functions that handle the I/O and pass the state to an incomplete function, which the player will complete with their strategy. The coding experience can be thought of as an 
 
  #### Game logs
 
