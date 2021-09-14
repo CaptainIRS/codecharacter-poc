@@ -16,18 +16,13 @@ def is_valid(equation: str):
         return False
 
 
-def get_line_from_player1():
-    for line in open('/fifos/player1/out', 'rb', 0):
-        yield line.decode().strip()
-
-
-def get_line_from_player2(fifo: str):
+def get_line_from_player(fifo: str):
     for line in open(fifo, 'rb', 0):
         yield line.decode().strip()
 
 
 def get_line_from(fifo: str):
-    return next(get_line_from_player1(fifo))
+    return next(get_line_from_player(fifo))
 
 
 def write_line_to(fifo: str, line: str):
@@ -39,6 +34,10 @@ def play_turn(giver_input: str,
               solver_input: str,
               solver_output: TextIOWrapper,
               score):
+
+    # Get equation from giver and check if equation is valid
+    # Penalize giver if equation is invalid
+
     giver_score, solver_score = score
     equation = get_line_from(giver_output)
     print('Got equation', equation)
@@ -47,9 +46,15 @@ def play_turn(giver_input: str,
         equation = '1'
     expected_answer = eval(equation)
     print('Expecting answer', expected_answer)
+
+    # Send equation to solver and receive solver's output
+
     write_line_to(solver_input, equation)
     answer = get_line_from(solver_output)
     print('Got answer', answer)
+
+    # Check for correctness
+
     if int(answer) == int(expected_answer):
         solver_score += 1
     else:
@@ -57,10 +62,6 @@ def play_turn(giver_input: str,
         solver_score -= 1
     return (giver_score, solver_score)
 
-
-print(os.listdir('/'))
-print(os.listdir('/fifos'))
-print(os.listdir('/fifos/player1'))
 
 player1_input = '/fifos/player1/in'
 player1_output = '/fifos/player1/out'
